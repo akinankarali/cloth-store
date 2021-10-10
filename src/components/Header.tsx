@@ -8,14 +8,14 @@ interface Props {
 
 const Header = (props: Props) => {
     const categories = [
-        "shirt",
-        "sweats",
-        "skirts"
+        "Shirt",
+        "Sweats",
+        "Skirts"
      ]
     return (
-        <div className="header container mx-auto grid grid-cols-3 gap-4">
+        <div className="header container mx-auto grid grid-cols-3 gap-4 border-b border-black sm:h-24 md:h-20 ">
             {/* logo */}
-            <div className="logo">
+            <div className="logo p-4 text-3xl flex items-center justify-start">
                 <Link to='/'>
                     <h1>Cloth Shop</h1>
                 </Link>
@@ -29,7 +29,7 @@ const Header = (props: Props) => {
                     </button>)
                 }
             </div>
-            <div className="login flex items-center pr-3 text-xl justify-center">
+            <div className="login flex items-center pr-5 text-xl justify-end">
                 <Link to='/login'>
                     <button className='ml-2 mr-2'>Log In</button>
                 </Link>
