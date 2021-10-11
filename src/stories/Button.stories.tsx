@@ -1,41 +1,29 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, Story  } from '@storybook/react';
+import { Button, Props } from '../components/Button';
+import { action } from '@storybook/addon-actions'; 
 
-import { Button } from './Button';
-
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
-export default {
-  title: 'Example/Button',
+const meta: Meta = {
+  title: 'Button',
   component: Button,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
-    backgroundColor: { control: 'color' },
-  },
-} as ComponentMeta<typeof Button>;
+    onClick: { action : 'clicked' },
+    children: {
+      defaultValue: 'Default'
+    }
+  }
+}
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+export default meta;
 
-export const Primary = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-Primary.args = {
-  primary: true,
-  label: 'Button',
-};
+const Templete: Story<Props> = (args) => <Button {...args}/>
 
-export const Secondary = Template.bind({});
+export const Default = Templete.bind({})
+
+export const Secondary = Templete.bind({})
+
 Secondary.args = {
-  label: 'Button',
-};
-
-export const Large = Template.bind({});
-Large.args = {
-  size: 'large',
-  label: 'Button',
-};
-
-export const Small = Template.bind({});
-Small.args = {
-  size: 'small',
-  label: 'Button',
-};
+  variant: 'secondary',
+  children: 'Secondary',
+  onClick: action('secondary button clicked')
+}
