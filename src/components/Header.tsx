@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Button from './Button'
 
 
 interface Props {
@@ -31,10 +32,10 @@ const Header = (props: Props) => {
             </div>
             <div className="login flex items-center pr-5 text-xl justify-end">
                 <Link to='/login'>
-                    <button className='ml-2 mr-2'>Log In</button>
+                    <Button variant="primary">Log In</Button>
                 </Link>
                 <Link to='/signup'>
-                    <button className='ml-2 mr-2'>Sign Up</button>
+                    <Button variant="primary">Sign Up</Button>
                </Link>
             </div>
             {/* <div className="loggedIn">

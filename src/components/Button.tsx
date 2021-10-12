@@ -11,13 +11,19 @@ export interface Props extends HTMLAttributes<HTMLButtonElement> {
 export const Button = ({children, variant='primary', ...props}: Props) => {
     return (
         <button 
-            className="text-white border-0 rounded-full p-2 cursor-pointer"
-            style={{
-                backgroundColor: variant === 'primary' ? 'blue' : 'gray',
-            }}
+            className={`text-black border
+             border-black
+              rounded p-2
+              cursor-pointer
+              ml-2 mr-2
+              ${variant === 'primary'
+               ? 'bg-white hover:bg-gray-800 hover:text-white'
+               : 'bg-black text-white hover:bg-white hover:text-black'}`}
             type="button"
             {...props}>
             { children }
         </button>
     )
 }
+
+export default Button
