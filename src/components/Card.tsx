@@ -17,9 +17,9 @@ export const Card = ({...props}: Props) => {
             <div className="relative pb-96 overflow-hidden">
                 <img className="absolute inset-0 h-full w-full object-contain" src={props.img} alt="" />
             </div>
-            <div className="p-4 border-t border-b text-sm text-gray-700">
-                <h2 className="mt-2 mb-2 font-bold">{props.title}</h2>
-                <p className="text-sm">{props.description}</p>
+            <div className="p-4 border-t border-b text-xl text-gray-700">
+                <h2 className="mt-2 mb-2 font-bold line-clamp-2">{props.title}</h2>
+                <p className="text-base line-clamp-3">{props.description}</p>
                 <div className="mt-3 flex items-center">
                     
                     <span className="text-sm font-semibold mr-1">
