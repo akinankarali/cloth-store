@@ -1,11 +1,24 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Button from './Button'
+import { IProductsData } from '../types/products.type'
+import ProductsDataService from '../services/products.service'
+import { AxiosResponse } from 'axios'
 
 interface Props {}
 
 const Header = (props: Props) => {
-  const categories = ['Shirt', 'Sweats', 'Skirts']
+
+
+  const [categories, setCategories] = useState<IProductsData[]>([])
+
+  useEffect(() => {
+    ProductsDataService.getAllCategories().then(
+      (response: AxiosResponse<[]>) => {
+        setCategories(response.data)
+      }
+    )
+  }, [])
   return (
     <div className="header container mx-auto grid grid-cols-3 gap-4 border-b border-black sm:h-24 md:h-20 ">
       {/* logo */}

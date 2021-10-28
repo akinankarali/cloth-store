@@ -10,6 +10,10 @@ class ProductsDataService {
     return http.get<IProductsData[]>(`/products/${id}`);
   }
 
+  getAllCategories() {
+    return http.get<[]>("products/categories");
+  }
+
   create(data: IProductsData) {
     return http.post("/products", data);
   }
