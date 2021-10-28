@@ -34,7 +34,6 @@ export const Card = ({ ...props }: Props) => {
         <div className="info flex">
           <p>{props.score}</p>
           <img className="ml-1 w-4 h-4" src={Star} alt="" />
-          <span className="ml-2">{props.category}</span>
         </div>
 
         {!props.isInCart && (
