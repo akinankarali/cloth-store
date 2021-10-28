@@ -1,4 +1,5 @@
 import Button from './Button'
+import Star from'../assets/star.png';
 
 export interface Props {
   title: string
@@ -31,7 +32,8 @@ export const Card = ({ ...props }: Props) => {
       </div>
       <div className="p-4 flex items-center text-sm text-gray-600 justify-between">
         <div className="info flex">
-          <p>{props.score} Score</p>
+          <p>{props.score}</p>
+          <img className="ml-1 w-4 h-4" src={Star} alt="" />
           <span className="ml-2">{props.category}</span>
         </div>
 
