@@ -1,14 +1,8 @@
 import React from 'react'
 
-interface Props {
-    
-}
+interface Props {}
 
 const Signup = (props: Props) => {
-    return (
-        <div>
-            Signup
-        </div>
-    )
+  return <div>Signup</div>
 }
 export default Signup
