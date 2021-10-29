@@ -3,9 +3,16 @@
 @tailwind utilities;
 
 .cards-wrapper .card img {
-    transition: transform .3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 .cards-wrapper .card:hover img {
-    transform: scale(1.05)
+  transform: scale(1.05);
+}
+
+.loader-container .loader {
+  left: 45%;
+}
+.loader-container .loader-text {
+  left: 49%;
 }

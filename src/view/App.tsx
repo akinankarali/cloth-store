@@ -3,6 +3,7 @@ import '../style/app.css'
 import Header from '../components/Header'
 import Login from './Login'
 import SignUp from './Signup'
+import Loader from '../components/Loader'
 import { Switch, Route } from 'react-router-dom'
 import Card from '../components/Card'
 import { AxiosResponse } from 'axios'
@@ -11,16 +12,23 @@ import ProductsDataService from '../services/products.service'
 
 function App() {
   const [products, setProducts] = useState<IProductsData[]>([])
+  const [isLoading, setLoading] = useState(true)
 
   useEffect(() => {
     ProductsDataService.getAll().then(
       (response: AxiosResponse<IProductsData[]>) => {
-        setProducts(response.data)
+        //this setTimeout for watching loading animation. I will remove later.
+        setTimeout(function(){ 
+          setProducts(response.data)
+          setLoading(false) //stop loading when data is fetched
+         }, 1000);
       }
     )
   }, [])
 
-  return (
+  return isLoading ? (   //Checkif if is loading
+    <Loader/>
+    ) :  (
     <div className="App">
       <Switch>
         <Route path="/" exact component={Header} />
