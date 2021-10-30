@@ -13,6 +13,9 @@ class ProductsDataService {
   getAllCategories() {
     return http.get<[]>("products/categories");
   }
+  getSpesificCategory(category: string) {
+    return http.get<[]>(`products/category/${category}`);
+  }
 
   create(data: IProductsData) {
     return http.post("/products", data);

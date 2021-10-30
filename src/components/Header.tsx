@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import Button from './Button'
-import { IProductsData } from '../types/products.type'
 import ProductsDataService from '../services/products.service'
 import { AxiosResponse } from 'axios'
 
@@ -10,7 +9,8 @@ interface Props {}
 const Header = (props: Props) => {
 
 
-  const [categories, setCategories] = useState<IProductsData[]>([])
+  const [categories, setCategories] = useState<[]>([])
+  const [categoryItems, setCategoryItems] = useState<[]>([])
 
   useEffect(() => {
     ProductsDataService.getAllCategories().then(
@@ -19,6 +19,15 @@ const Header = (props: Props) => {
       }
     )
   }, [])
+
+  const categoryRequest = useCallback((item) => {
+     ProductsDataService.getSpesificCategory(item).then(
+      (response: AxiosResponse<[]>) => {
+        setCategoryItems(response.data)
+      }
+    )
+}, []);
+  
   return (
     <div className="header container mx-auto grid grid-cols-3 gap-4 border-b border-black sm:h-24 md:h-20 ">
       {/* logo */}
@@ -33,7 +42,7 @@ const Header = (props: Props) => {
           <button
             className="ml-3 mr-3 text-xl"
             key={index}
-            onClick={() => console.log(item)}
+            onClick={() => {categoryRequest(item)}}
           >
             {item}
           </button>

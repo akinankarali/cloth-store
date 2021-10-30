@@ -31,9 +31,15 @@ function App() {
     ) :  (
     <div className="App">
       <Switch>
-        <Route path="/" exact component={Header} />
-        <Route path="login" component={Login} />
-        <Route path="signup" component={SignUp} />
+        <Route exact path="/">
+            <Header/>
+        </Route>
+        <Route path="login">
+            <Login />
+        </Route>
+        <Route path="signup">
+            <SignUp />
+        </Route>
       </Switch>
       <div className="content container mx-auto pt-12">
         <div className="cards-wrapper flex flex-wrap -mx-4 justify-center">
